@@ -1,0 +1,341 @@
+   <!DOCTYPE html>
+   <html>
+   <head>
+
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <style>
+         
+        </style>
+        <link rel="stylesheet" type="text/css" href="css/style/style.css"/>
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/admin/main.js"></script>    
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('#dob').datepicker({
+            /*format: "dd/mm/yyyy",*/
+          dateFormat: 'dd-M-yy',
+        }); 
+});
+</script> 
+
+<script type="text/javascript">
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(130)
+                    .height(130);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+<script type="text/javascript">
+
+//$(document).ready(function(){
+function fun1(val){
+  
+  $("#confirmpassword").change(function(){
+  
+    if($("#newpassword").val()==$("#confirmpassword").val()){
+      $("#error").hide();
+      
+    }
+    else{
+      $("#error").html("<strong>* New and Confirm Password should be same.</strong>");
+      $("#error").show();
+    }
+});
+};
+//});
+
+</script>
+    </head>
+    <body class="container-fluid" style="flex-wrap: wrap;">
+     
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-1">
+        <div class="container-fluid">
+          <button class="navbar-toggler" data-bs-target="#menulist" data-bs-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            Naresh it
+          </a>
+    
+          <div class="collapse navbar-collapse" id="menulist">
+            <div class="d-flex justify-content-between">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link bi bi-house" target="frameBody" href="./index.html"> Home </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link bi bi-question-circle" target="frameBody" href="./about.html"> About </a>
+                </li>
+    
+                <li class="nav-item">
+                  <a class="nav-link bi bi-question-circle" target="frameBody" href="./service.html"> Service </a>
+                </li>
+    
+                <li class="nav-item">
+                  <a class="nav-link bi bi-telephone-forward" target="framebody" href="./contactus.html"> Contact </a>
+                </li>
+              </ul>
+            </div>
+    
+            <div class="dropdown-menu collapse">
+              <div class="dropdown-item">
+               <a href="../Bootstrap website/register.html"style="color: black"><i class="bi bi-box-arrow-in-right">Sign In </i></a> 
+  
+              </div>
+              <div class="dropdwn-menu">
+                <div class="dropdown-item">
+                 <a href="../Bootstrap website/login.html" style="color: black;"> <i class="bi bi-unlock-alt">Sign Up</i></a> 
+                </div>
+              </div>
+  
+  
+              <div class="dropdwn-menu">
+                <div class="dropdown-item">
+                  <a href="../Bootstrap website/Pass.html" style="color: black;"><i class="bi bi-unlock-alt">Change Password</i></a>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <br><br><br>
+           
+
+
+
+
+
+      <div id="register"style="border: 2px solid black; margin:50px; box-shadow: 20px 20px 10px  cyan">
+    
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 form-group"></div>          
+                    <div class="col-xs-12 col-sm-4 form-group" id="reglogin">
+        
+        <center><h3><strong>Registration Form</strong></h3>
+        
+        <p id="error" style="color:red"></p>
+        
+        </center>
+        
+        <br><br>
+        <div class="log">
+        <form method="POST" action="registeraction.php" enctype="multipart/form-data" >
+        
+        <div class="row">
+               <div class="col-xs-12 col-sm-12 form-group">
+                <label>Full Name :</label>
+              <input type="text" class="form-control" id="fullname" placeholder="Full Name" name="fullname" maxlength="30" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '').replace(/(\..*)\./g, '$1');" title="Please enter characters only." required>
+              </div>
+              </div>
+        <div class="row">
+               <div class="col-xs-12 col-sm-12 form-group">
+                <label>Email :</label>
+              <input type="email" class="form-control" id="emailid" placeholder="Email Id" name="emailid" required>
+            </div> 
+        </div>
+        <div class="row">
+        
+        <div class="col-xs-12 col-sm-12 form-group">
+                  <label>Mobile :</label>
+              <input type="text" class="form-control" id="phone" placeholder="Contact Number" name="phone" required pattern="[7-9]{1}[0-9]{9}" maxlength="10" title="The contact number must enter 10 digits number and number start with 7 or 8 or 9." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+            </div>                            
+        </div>
+        <div class="row">
+           <div class="col-xs-12 col-sm-12 form-group">
+            <label>Data :</label>
+            <input type="text" class="form-control" data-date-format="" id="dob" placeholder="Date" name="dob" required>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 form-group">
+              <label>Image :</label>
+                  <input type="file" name="file" placeholder="Image" accept=".png, .jpg, .jpeg" onchange="readURL(this);" required>
+            </div>                       
+          </div>
+        <div class="row">  
+                 <div class="col-xs-12 col-sm-12 form-group">
+              <label>Password :</label>
+                  <input type="password" class="form-control" id="password" placeholder="Password" name="password" minlength="6" maxlength="10" required title="the password enter must above 6 and below 10 characters only.">
+                </div>               
+          </div>  
+        <div class="row">
+                         <div class="col-xs-12 col-sm-12 form-group">
+                          <label>Confirm Password :</label>
+                      <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" name="confirmpassword" minlength="6" maxlength="10" onChange="fun1(this.value)" title="the password enter must above 6 and below 10 characters only." required>
+                    </div>
+                  </div>
+        <div class="row">
+                <div class="col-xs-12 col-sm-12 form-group">
+                   <label>Gender :</label>
+                      <input type="radio" id="gender" name="gender" value="male" required> Male
+                      <input type="radio" id="gender" name="gender" value="female" required> Female
+                    </div>
+                  </div>
+        
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                 <div class="checkbox">
+                  <label><input type="checkbox" id="terms" name="terms" required>I've read and Accept the 
+                        <a href="#myModal"  data-toggle="modal" data-target="" class="text-danger">Terms and Conditions</a></label>                       
+                 </div>
+            </div>
+        </div>
+         <center>
+        <a href="../Bootstrap website/login.html"><button type="button" name="submit" class="btn btn-warning btn-md pull-left " >Login</button></a>
+        <button type="submit" class="btn btn-success btn-md pull-right " id="submitbtn " style="margin-right: 10px;">Register</button>
+        </center>
+        </form>  
+        
+        </div>            
+        </div>
+        
+        <div class="col-xs-12 col-sm-1"></div>
+        <div class="col-xs-12 col-sm-3">
+        <br><br><br>
+        <img id="blah" src="Images/user.png" class="zoom" alt="your image" width="130" height="130">
+        </div>
+        
+        
+        
+        </div>
+        </div>
+        
+        
+        <!-- Model Start -->
+        
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-md">
+        
+        <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-warning text-center"><strong>Terms and Conditions</strong></h4>
+              </div>
+              <div class="modal-body">
+                         
+        <p class="fa fa-star" style="line-height: 1.4"> &nbsp; A Terms and Conditions agreement is the agreement that includes the terms, the rules and the guidelines of acceptable behavior and other useful sections to which users must agree in order to use or access your website and mobile app.</p>
+        <p class="fa fa-star" style="line-height: 1.4"> &nbsp; While most websites seem to have one, there's actually no legal requirement for defining terms and conditions. However, if you are gathering user's personal data, you are required to have a stated Privacy Policy. Terms and Conditions may not be required by law, but it's still a smart thing to include.</p>
+            
+        </div>
+                
+        
+             
+        <div class="modal-footer">
+                
+           <button type="button" id="closebtn" data-dismiss="modal" class="btn btn-warning btn-md pull-right">Close</button>
+          </div>
+         </div>
+        </div> 
+        </div>
+        
+
+
+
+        <br><br>
+        <br><br><br><br><br>
+  <footer class="text-center text-lg-start bg-light text-muted">
+
+   
+
+      <div class="me-5 d-none d-lg-block">
+
+      </div>
+      <center style= font-size: 20px;"> Naresh Technologies</center>
+
+
+      <div>
+
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Social Media
+            </h6>
+            <p>
+              <a href="#!" class="text-reset"> <i class="bi bi-facebook"
+                  style="font-size: 20px; color: blue;"></i>Facebook</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset"><i class="bi bi-google" style="font-size: 20px; color:gr;"></i>Google</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset"><i class="bi bi-twitter"
+                  style="font-size: 20px; color: skyblue;"></i>Twitter</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset"> <i class="bi bi-youtube "
+                  style="font-size: 20px; color: tomato;"></i>Youtube</a>
+            </p>
+          </div>
+      
+
+          
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Menu
+            </h6>
+            <p>
+              <a href="#!" class="text-reset"> <i class="bi bi-house" style="font-size: 20px; color: blue;"></i>Home</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset"><i class="bi bi-file-person"
+                  style="font-size: 20px; color:gr;"></i>About</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset"><i class="bi bi-person-circle"" style=" font-size: 20px; color:
+                  skyblue;"></i>Service</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset"> <i class="bi bi-telephone-plus-fill "
+                  style="font-size: 20px; color: black"></i>Contact</a>
+            </p>
+          </div>
+
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact us
+            </h6>
+            <ul>
+              <li>Name : Naresh Istitute</li>
+              <li>Email : info@nareshit.com</li>
+              <li>Contact : +91-xxxxxxxxxx</li>
+              <li>Address : Sr nagar, Hyderabad, Telangana, India </li>
+            </ul>
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <div class="text-center p-4" style="background-color: black;">
+      <div style="font-family:cursive;">© 2021 Copyright: Naresh Technologies</div>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        </body>
+        </html>
